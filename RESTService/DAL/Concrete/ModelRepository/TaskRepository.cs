@@ -6,6 +6,7 @@ using DAL.Interfacies.DTO;
 using ORM.Models;
 using DAL.Interfacies.Repository.ModelRepository;
 using DAL.Mappers;
+using DAL.Interfacies.Repository;
 
 namespace DAL.Concrete.ModelRepository
 {
@@ -14,6 +15,7 @@ namespace DAL.Concrete.ModelRepository
         public TaskRepository(DbContext context)
         {
             this.context = context;
+            this.unitOfWork = new UnitOfWork(context);
         }
 
         public void Create(DalTask entity)
@@ -23,7 +25,9 @@ namespace DAL.Concrete.ModelRepository
 
             Task ormTask = entity.ToOrmTask();
 
-            context?.Set<Task>().Add(ormTask);
+            context?.Set<User>().FirstOrDefault(u => u.Id == entity.AuthorId)?.Tasks.Add(ormTask);
+
+            unitOfWork.Commit();
         }
 
         public void Update(DalTask entity)
@@ -39,6 +43,8 @@ namespace DAL.Concrete.ModelRepository
                 ormTask.Description = entity.Description;
                 ormTask.PublishDate = entity.PublishDate;
             }
+
+            unitOfWork.Commit();
         }
 
         public void Delete(DalTask entity)
@@ -52,14 +58,17 @@ namespace DAL.Concrete.ModelRepository
             {
                 context?.Set<Task>().Remove(ormTask);
             }
+
+            unitOfWork.Commit();
         }
 
-        public IEnumerable<DalTask> GetAll() => context?.Set<Task>().Select(t => t.ToDalTask());
+        public IEnumerable<DalTask> GetAll() => context?.Set<Task>().ToList().Select(t => t.ToDalTask());
 
         public DalTask GetById(int id) => context?.Set<Task>().FirstOrDefault(t => t.Id == id).ToDalTask();
 
-        public IEnumerable<DalTask> GetTasksByAuthorNickname(string nickname) => context?.Set<User>().FirstOrDefault(u => u.Nickname == nickname)?.Tasks?.Select(t => t.ToDalTask());
+        public IEnumerable<DalTask> GetTasksByAuthorNickname(string nickname) => context?.Set<Task>().Where(t => t.Author.Nickname == nickname).Select(t => t.ToDalTask());
 
         private readonly DbContext context;
+        private readonly IUnitOfWork unitOfWork;
     }
 }

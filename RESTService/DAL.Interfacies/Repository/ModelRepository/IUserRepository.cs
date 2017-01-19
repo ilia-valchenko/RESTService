@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using DAL.Interfacies.DTO;
+﻿using DAL.Interfacies.DTO;
 
 namespace DAL.Interfacies.Repository.ModelRepository
 {

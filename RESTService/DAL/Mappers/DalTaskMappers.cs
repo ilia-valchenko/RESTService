@@ -17,7 +17,8 @@ namespace DAL.Mappers
                 Title = ormTask.Title,
                 Description = ormTask.Description,
                 PublishDate = ormTask.PublishDate,
-                UserId = ormTask.Author.Id
+                AuthorId = ormTask.Author.Id,
+                AuthorNickname = ormTask.Author.Nickname
             };
         }
 
