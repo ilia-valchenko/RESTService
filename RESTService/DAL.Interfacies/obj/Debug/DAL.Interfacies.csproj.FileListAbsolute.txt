@@ -7,3 +7,8 @@ C:\Users\VNA\Desktop\epam-net\git\webapi\RESTService\DAL.Interfacies\bin\Debug\D
 C:\Users\VNA\Desktop\epam-net\git\webapi\RESTService\DAL.Interfacies\bin\Debug\DAL.Interfacies.pdb
 C:\Users\VNA\Desktop\epam-net\git\webapi\RESTService\DAL.Interfacies\obj\Debug\DAL.Interfacies.dll
 C:\Users\VNA\Desktop\epam-net\git\webapi\RESTService\DAL.Interfacies\obj\Debug\DAL.Interfacies.pdb
+D:\GitEpam\Todolist\RESTService\DAL.Interfacies\bin\Debug\DAL.Interfacies.dll
+D:\GitEpam\Todolist\RESTService\DAL.Interfacies\bin\Debug\DAL.Interfacies.pdb
+D:\GitEpam\Todolist\RESTService\DAL.Interfacies\obj\Debug\DAL.Interfacies.dll
+D:\GitEpam\Todolist\RESTService\DAL.Interfacies\obj\Debug\DAL.Interfacies.pdb
+D:\GitEpam\Todolist\RESTService\DAL.Interfacies\obj\Debug\DAL.Interfacies.csprojResolveAssemblyReference.cache

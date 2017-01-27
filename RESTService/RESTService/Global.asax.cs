@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using RESTService.Infrastructure;
+using Ninject.Web.Common;
 
 namespace RESTService
 {

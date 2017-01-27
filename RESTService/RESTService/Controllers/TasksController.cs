@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Web.Http;
 using DAL.Interfacies.Repository.ModelRepository;
-using DAL.Concrete.ModelRepository;
-using ORM;
 using RESTService.Models;
 using DAL.Interfacies.DTO;
 using RESTService.Infrastructure.Mappers;
@@ -11,6 +9,11 @@ namespace RESTService.Controllers
 {
     public class TasksController : ApiController 
     {
+        public TasksController(ITaskRepository taskRepository)
+        {
+            this.taskRepository = taskRepository;
+        }
+
         [HttpGet]
         public IHttpActionResult ShowTodoList()
         {
@@ -31,6 +34,6 @@ namespace RESTService.Controllers
             return Json(dalTask.ToTaskViewModel());
         }
 
-        private ITaskRepository taskRepository = new TaskRepository(new TodoListDbContext());
+        private ITaskRepository taskRepository;
     }
 }

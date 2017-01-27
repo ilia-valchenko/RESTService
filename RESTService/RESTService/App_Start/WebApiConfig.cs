@@ -10,7 +10,7 @@ namespace RESTService
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            config.EnableQuerySupport();
+            //config.EnableQuerySupport();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
